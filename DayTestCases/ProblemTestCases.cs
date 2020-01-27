@@ -35,5 +35,37 @@ namespace DayTestCases
             var result = day.Ribbon();
             Assert.Equal(3737498, result);
         }
+
+        [Fact]
+        public void Day03_Part1_IsCorrect()
+        {
+            var day = new Day03();
+            var result = day.HousesVisitedCount();
+            Assert.Equal(2572, result);
+        }
+
+        [Fact]
+        public void Day03_Part2_IsCorrect()
+        {
+            var day = new Day03();
+            var result = day.HousesVisitedByTwoCount();
+            Assert.Equal(2631, result);
+        }
+
+        [Fact]
+        public void Day04_Part1_IsCorrect()
+        {
+            var day = new Day04();
+            var result = day.LowestLeadingZeroHash(5);
+            Assert.Equal(282749, result);
+        }
+
+        [Fact]
+        public void Day04_Part2_IsCorrect()
+        {
+            var day = new Day04();
+            var result = day.LowestLeadingZeroHash(6);
+            Assert.Equal(9962624, result);
+        }
     }
 }
