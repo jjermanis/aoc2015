@@ -67,5 +67,37 @@ namespace DayTestCases
             var result = day.LowestLeadingZeroHash(6);
             Assert.Equal(9962624, result);
         }
+
+        [Fact]
+        public void Day05_Part1_IsCorrect()
+        {
+            var day = new Day05();
+            var result = day.NiceWordCountV1();
+            Assert.Equal(258, result);
+        }
+
+        [Fact]
+        public void Day05_Part2_IsCorrect()
+        {
+            var day = new Day05();
+            var result = day.NiceWordCountV2();
+            Assert.Equal(53, result);
+        }
+
+        [Fact]
+        public void Day06_Part1_IsCorrect()
+        {
+            var day = new Day06();
+            var result = day.LightsOnAfterInstructions(1);
+            Assert.Equal(543903, result);
+        }
+
+        [Fact]
+        public void Day06_Part2_IsCorrect()
+        {
+            var day = new Day06();
+            var result = day.LightsOnAfterInstructions(2);
+            Assert.Equal(14687245, result);
+        }
     }
 }
