@@ -99,5 +99,37 @@ namespace DayTestCases
             var result = day.LightsOnAfterInstructions(2);
             Assert.Equal(14687245, result);
         }
+
+        [Fact]
+        public void Day07_Part1_IsCorrect()
+        {
+            var day = new Day07();
+            var result = day.GetSignal("a");
+            Assert.Equal(16076, result);
+        }
+
+        [Fact]
+        public void Day07_Part2_IsCorrect()
+        {
+            var day = new Day07();
+            var result = day.GetRemappedSignal("a");
+            Assert.Equal(2797, result);
+        }
+
+        [Fact]
+        public void Day08_Part1_IsCorrect()
+        {
+            var day = new Day08();
+            var result = day.Part1();
+            Assert.Equal(1342, result);
+        }
+
+        [Fact]
+        public void Day08_Part2_IsCorrect()
+        {
+            var day = new Day08();
+            var result = day.Part2();
+            Assert.Equal(2074, result);
+        }
     }
 }

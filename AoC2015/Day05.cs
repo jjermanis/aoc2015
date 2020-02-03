@@ -10,7 +10,6 @@ namespace AoC2015
 
         private readonly HashSet<string> FORBIDDEN = new HashSet<string> { "ab", "cd", "pq", "xy" };
 
-
         public Day05(string filename) : base(filename)
         {
         }
