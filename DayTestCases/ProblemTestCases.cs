@@ -131,5 +131,21 @@ namespace DayTestCases
             var result = day.Part2();
             Assert.Equal(2074, result);
         }
+
+        [Fact]
+        public void Day09_Part1_IsCorrect()
+        {
+            var day = new Day09();
+            var result = day.ShortestRoute();
+            Assert.Equal(141, result);
+        }
+
+        [Fact]
+        public void Day09_Part2_IsCorrect()
+        {
+            var day = new Day09();
+            var result = day.LongestRoute();
+            Assert.Equal(736, result);
+        }
     }
 }

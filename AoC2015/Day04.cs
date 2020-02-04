@@ -6,6 +6,8 @@ namespace AoC2015
 {
     public class Day04 : IDay
     {
+        private int MAX_SUPPORTED_COUNT = 6;
+
         private readonly string _key;
 
         public Day04(string key)
@@ -14,7 +16,6 @@ namespace AoC2015
         }
         public Day04() : this("yzbqklnj")
         {
-
         }
 
         public void Do()
@@ -25,13 +26,16 @@ namespace AoC2015
 
         public int LowestLeadingZeroHash(int zeroCount)
         {
+            if (zeroCount > MAX_SUPPORTED_COUNT)
+                throw new Exception($"Unsupported zeroCount. Max value={MAX_SUPPORTED_COUNT}");
+
             var leadingZeroes = new string('0', zeroCount);
 
             using (var hasher = MD5.Create())
             {
                 for (var x = 0; x < int.MaxValue; x++)
                 {
-                    var hash = GetMd5Hash(hasher, $"{_key}{x}");
+                    var hash = GetMd5HashStart(hasher, $"{_key}{x}");
 
                     if (leadingZeroes.Equals(hash.Substring(0, zeroCount)))
                         return x;
@@ -40,16 +44,11 @@ namespace AoC2015
             throw new Exception("Never gets here");
         }
 
-        private string GetMd5Hash(MD5 hasher, string input)
+        private string GetMd5HashStart(MD5 hasher, string input)
         {
             var rawData = hasher.ComputeHash(Encoding.UTF8.GetBytes(input));
-            var sb = new StringBuilder();
-            for (int i = 0; i < rawData.Length; i++)
-            {
-                sb.Append(rawData[i].ToString("x2"));
-            }
-
-            return sb.ToString();
+            return $"{rawData[0].ToString("x2")}{rawData[1].ToString("x2")}{rawData[2].ToString("x2")}";
         }
+
     }
 }
