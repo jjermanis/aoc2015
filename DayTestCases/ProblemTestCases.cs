@@ -147,5 +147,21 @@ namespace DayTestCases
             var result = day.LongestRoute();
             Assert.Equal(736, result);
         }
+
+        [Fact]
+        public void Day10_Part1_IsCorrect()
+        {
+            var day = new Day10();
+            var result = day.LookAndSayLen(40);
+            Assert.Equal(360154, result);
+        }
+
+        [Fact]
+        public void Day10_Part2_IsCorrect()
+        {
+            var day = new Day10();
+            var result = day.LookAndSayLen(50);
+            Assert.Equal(5103798, result);
+        }
     }
 }
