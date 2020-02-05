@@ -44,15 +44,17 @@ namespace AoC2015
             {
                 if (word[i] != curr)
                 {
-                    sb.Append($"{count}{curr}");
+                    AddTerm(count, curr);
                     curr = word[i];
                     count = 1;
                 }
                 else
                     count++;
             }
-            sb.Append($"{count}{curr}");
+            AddTerm(count, curr);
             return sb.ToString();
+
+            void AddTerm(int n, char val) => sb.Append($"{n}{val}");
         }
     }
 }
