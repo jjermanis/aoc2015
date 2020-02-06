@@ -14,7 +14,7 @@ namespace DayTestCases
             => TestProb1("pqrstuv", 1048970);
 
         private void TestProb1(string key, int expected)
-            => Assert.Equal(expected, new Day04(key).LowestLeadingZeroHash(5));
+            => Assert.Equal(expected, new Day04(key).LowestLeading5ZeroHash());
 
     }
 }

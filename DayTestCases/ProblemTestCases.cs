@@ -56,7 +56,7 @@ namespace DayTestCases
         public void Day04_Part1_IsCorrect()
         {
             var day = new Day04();
-            var result = day.LowestLeadingZeroHash(5);
+            var result = day.LowestLeading5ZeroHash();
             Assert.Equal(282749, result);
         }
 
@@ -64,7 +64,7 @@ namespace DayTestCases
         public void Day04_Part2_IsCorrect()
         {
             var day = new Day04();
-            var result = day.LowestLeadingZeroHash(6);
+            var result = day.LowestLeading6ZeroHash();
             Assert.Equal(9962624, result);
         }
 
