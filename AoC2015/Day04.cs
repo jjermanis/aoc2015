@@ -6,8 +6,6 @@ namespace AoC2015
 {
     public class Day04 : IDay
     {
-        private int MAX_SUPPORTED_COUNT = 6;
-
         private readonly string _key;
 
         public Day04(string key)

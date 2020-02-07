@@ -163,5 +163,21 @@ namespace DayTestCases
             var result = day.LookAndSayLen(50);
             Assert.Equal(5103798, result);
         }
+
+        [Fact]
+        public void Day11_Part1_IsCorrect()
+        {
+            var day = new Day11();
+            var result = day.NextValidPassword("vzbxkghb");
+            Assert.Equal("vzbxxyzz", result);
+        }
+
+        [Fact]
+        public void Day11_Part2_IsCorrect()
+        {
+            var day = new Day11();
+            var result = day.NextValidPassword("vzbxxyzz");
+            Assert.Equal("vzcaabcc", result);
+        }
     }
 }
