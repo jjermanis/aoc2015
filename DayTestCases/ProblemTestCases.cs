@@ -179,5 +179,21 @@ namespace DayTestCases
             var result = day.NextValidPassword("vzbxxyzz");
             Assert.Equal("vzcaabcc", result);
         }
+
+        [Fact]
+        public void Day12_Part1_IsCorrect()
+        {
+            var day = new Day12();
+            var result = day.SumOfAllNumbers();
+            Assert.Equal(119433, result);
+        }
+
+        [Fact]
+        public void Day13_Part1_IsCorrect()
+        {
+            var day = new Day13();
+            var result = day.MostHappyArrangement();
+            Assert.Equal(618, result);
+        }
     }
 }
