@@ -188,12 +188,25 @@ namespace DayTestCases
             Assert.Equal(119433, result);
         }
 
+        //[Fact]
+        //public void Day12_Part2_IsCorrect()
+        //{
+        //}
+
         [Fact]
         public void Day13_Part1_IsCorrect()
         {
             var day = new Day13();
             var result = day.MostHappyArrangement();
             Assert.Equal(618, result);
+        }
+
+        [Fact]
+        public void Day13_Part2_IsCorrect()
+        {
+            var day = new Day13();
+            var result = day.MostHappyArrangementWithMe();
+            Assert.Equal(601, result);
         }
     }
 }

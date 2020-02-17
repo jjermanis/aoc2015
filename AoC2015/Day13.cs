@@ -6,6 +6,8 @@ namespace AoC2015
 {
     public class Day13 : DayMultiLineText, IDay
     {
+        private const string ME = "me";
+
         public Day13(string filename) : base(filename)
         {
         }
@@ -17,20 +19,49 @@ namespace AoC2015
         public void Do()
         {
             Console.WriteLine($"Maximum happiness: {MostHappyArrangement()}");
+            Console.WriteLine($"Maximum happiness with me: {MostHappyArrangementWithMe()}");
         }
 
         public int MostHappyArrangement()
+            => MostHappyArrangement(GetHappinessOfGuests);
+
+        public int MostHappyArrangementWithMe()
+            => MostHappyArrangement(GetHappinessOfGuestsWithMe);
+
+        private int MostHappyArrangement(Func<IEnumerable<int>> GetHappiness)
         {
             var result = 0;
-            foreach (var distance in ArrangementHappiness())
+            (var guests, var happinessMap) = GetSeatingInfo();
+            foreach (var distance in GetHappiness())
                 result = Math.Max(result, distance);
             return result;
         }
 
-        private IEnumerable<int> ArrangementHappiness()
+        private IEnumerable<int> GetHappinessOfGuests()
         {
             (var guests, var happinessMap) = GetSeatingInfo();
+            foreach (var happiness in ArrangementHappiness(guests, happinessMap))
+                yield return happiness;
+        }
 
+        private IEnumerable<int> GetHappinessOfGuestsWithMe()
+        {
+            (var guests, var happinessMap) = GetSeatingInfo();
+            foreach (var guest in guests)
+            {
+                happinessMap[(ME, guest)] = 0;
+                happinessMap[(guest, ME)] = 0;
+            }
+            guests.Add(ME);
+
+            foreach (var happiness in ArrangementHappiness(guests, happinessMap))
+                yield return happiness;
+        }
+
+        private IEnumerable<int> ArrangementHappiness(
+            IList<string> guests,
+            IDictionary<(string, string), int> happinessMap)
+        {
             var gc = guests.Count;
             // Iterate through all seating permutations
             foreach (var arrangement in Util.PermuteFromLength(gc))
