@@ -208,5 +208,13 @@ namespace DayTestCases
             var result = day.MostHappyArrangementWithMe();
             Assert.Equal(601, result);
         }
+
+        [Fact]
+        public void Day14_Part1_IsCorrect()
+        {
+            var day = new Day14();
+            var result = day.RaceWinnerDistance(2503);
+            Assert.Equal(2696, result);
+        }
     }
 }
