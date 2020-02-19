@@ -216,5 +216,13 @@ namespace DayTestCases
             var result = day.RaceWinnerDistance(2503);
             Assert.Equal(2696, result);
         }
+
+        [Fact]
+        public void Day15_Part1_IsCorrect()
+        {
+            var day = new Day15();
+            var result = day.MaxScore();
+            Assert.Equal(18965440, result);
+        }
     }
 }
