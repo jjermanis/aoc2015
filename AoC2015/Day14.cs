@@ -18,6 +18,7 @@ namespace AoC2015
         {
             var time = 2503;
             Console.WriteLine($"Race winner distance: {RaceWinnerDistance(time)}");
+            Console.WriteLine($"Leading scorer points: {LeaderPoints(time)}");
         }
 
         public int RaceWinnerDistance(int seconds)
@@ -31,8 +32,28 @@ namespace AoC2015
                     if (periodTime < deer.FlyTime)
                         deer.Distance += deer.Speed;
                 }
+
             }
             return reindeer.Max(d => d.Distance);
+        }
+
+        public int LeaderPoints(int seconds)
+        {
+            var reindeer = GetReindeer().ToList();
+            for (int t = 0; t < seconds; t++)
+            {
+                foreach (var deer in reindeer)
+                {
+                    var periodTime = t % deer.CyclePeriod;
+                    if (periodTime < deer.FlyTime)
+                        deer.Distance += deer.Speed;
+                }
+                var leadDist = reindeer.Max(d => d.Distance);
+                var leadDeer = reindeer.Where(d => d.Distance == leadDist);
+                foreach (var deer in leadDeer)
+                    deer.Points++;
+            }
+            return reindeer.Max(d => d.Points);
         }
 
         private IEnumerable<Reindeer> GetReindeer()
@@ -58,6 +79,7 @@ namespace AoC2015
             public int RestTime { get; set; }
             public int CyclePeriod { get => FlyTime + RestTime; }
             public int Distance { get; set; }
+            public int Points { get; set; }
         }
     }
 }

@@ -218,6 +218,14 @@ namespace DayTestCases
         }
 
         [Fact]
+        public void Day14_Part2_IsCorrect()
+        {
+            var day = new Day14();
+            var result = day.LeaderPoints(2503);
+            Assert.Equal(1084, result);
+        }
+
+        [Fact]
         public void Day15_Part1_IsCorrect()
         {
             var day = new Day15();
