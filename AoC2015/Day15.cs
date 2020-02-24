@@ -17,9 +17,10 @@ namespace AoC2015
         public void Do()
         {
             Console.WriteLine($"Maximum score: {MaxScore()}");
+            Console.WriteLine($"Maximum score for 500 calories: {MaxScore(500)}");
         }
 
-        public int MaxScore()
+        public int MaxScore(int? targetCalories = null)
         {
             var ings = GetIngredients();
             var max = 0;
@@ -32,9 +33,11 @@ namespace AoC2015
                             int dura = a * ings[0].Durability + b * ings[1].Durability + c * ings[2].Durability + d * ings[3].Durability;
                             int flavor = a * ings[0].Flavor + b * ings[1].Flavor + c * ings[2].Flavor + d * ings[3].Flavor;
                             int text = a * ings[0].Texture + b * ings[1].Texture + c * ings[2].Texture + d * ings[3].Texture;
+                            int calories = a * ings[0].Calories + b * ings[1].Calories + c * ings[2].Calories + d * ings[3].Calories;
 
                             if (frost > 0 && dura > 0 && flavor > 0 && text > 0)
-                                max = Math.Max(max, frost * dura * flavor * text);
+                                if (!targetCalories.HasValue || calories == targetCalories)
+                                    max = Math.Max(max, frost * dura * flavor * text);
                         }
             return max;
         }
@@ -59,7 +62,6 @@ namespace AoC2015
 
             return result;
 
-            string TrimLast(string s) => s.Substring(0, s.Length - 1);
             int Value(string s) => int.Parse(s.Replace(',', ' '));
         }
 

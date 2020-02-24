@@ -232,5 +232,14 @@ namespace DayTestCases
             var result = day.MaxScore();
             Assert.Equal(18965440, result);
         }
+
+        [Fact]
+        public void Day15_Part2_IsCorrect()
+        {
+            var day = new Day15();
+            var result = day.MaxScore(500);
+            Assert.Equal(15862900, result);
+        }
+
     }
 }

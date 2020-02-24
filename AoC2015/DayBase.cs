@@ -12,5 +12,8 @@ namespace AoC2015
 
         protected string TextFile(string fileName)
             => File.ReadAllText(FILE_PATH + fileName);
+
+        protected string TrimLast(string s) 
+            => s.Substring(0, s.Length - 1);
     }
 }
