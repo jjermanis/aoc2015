@@ -31,7 +31,6 @@ namespace AoC2015
         private int MostHappyArrangement(Func<IEnumerable<int>> GetHappiness)
         {
             var result = 0;
-            (var guests, var happinessMap) = GetSeatingInfo();
             foreach (var distance in GetHappiness())
                 result = Math.Max(result, distance);
             return result;

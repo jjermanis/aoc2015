@@ -241,5 +241,12 @@ namespace DayTestCases
             Assert.Equal(15862900, result);
         }
 
+        [Fact]
+        public void Day16_Part1_IsCorrect()
+        {
+            var day = new Day16();
+            var result = day.GetExactSue();
+            Assert.Equal(40, result);
+        }
     }
 }
