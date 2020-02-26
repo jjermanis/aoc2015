@@ -22,10 +22,14 @@ namespace AoC2015
         public void Do()
         {
             Console.WriteLine($"Sue number: {GetExactSue()}");
+            Console.WriteLine($"Sue Part 2: {GetSuePart2()}");
         }
 
         public int GetExactSue()
             => GetSue(IsExactMatch);
+
+        public int GetSuePart2()
+            => GetSue(IsPart2Match);
 
         private int GetSue(Func<string, int, bool> IsValid)
         {
@@ -48,6 +52,26 @@ namespace AoC2015
             int sueValue)
             => ID.Equals(key) || sueValue == _info[key];
 
+        private bool IsPart2Match(
+            string key,
+            int sueValue)
+        {
+            if (ID.Equals(key))
+                return true;
+
+            switch (key)
+            {
+                case "cats":
+                case "trees":
+                    return sueValue > _info[key];
+                case "pomeranians":
+                case "goldfish":
+                    return sueValue < _info[key];
+                default:
+                    return sueValue == _info[key];
+            }
+        }
+
         private IList<Dictionary<string, int>> GetSues()
         {
             var result = new List<Dictionary<string, int>>();
@@ -55,16 +79,16 @@ namespace AoC2015
             {
                 var newSue = new Dictionary<string, int>();
                 var tokens = sue.Split(' ');
-                newSue[ID] = TokTrimVal(1);
-                newSue[TokTrim(2)] = TokTrimVal(3);
-                newSue[TokTrim(4)] = TokTrimVal(5);
-                newSue[TokTrim(6)] = int.Parse(tokens[7]);
+                newSue[ID] = TokenTrimVal(1);
+                newSue[TokenTrim(2)] = TokenTrimVal(3);
+                newSue[TokenTrim(4)] = TokenTrimVal(5);
+                newSue[TokenTrim(6)] = int.Parse(tokens[7]);
                 result.Add(newSue);
 
-                string TokTrim(int index)
+                string TokenTrim(int index)
                     => TrimLast(tokens[index]);
-                int TokTrimVal(int index)
-                    => int.Parse(TokTrim(index));
+                int TokenTrimVal(int index)
+                    => int.Parse(TokenTrim(index));
             }
             return result;
         }
