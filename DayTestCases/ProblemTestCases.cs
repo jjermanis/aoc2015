@@ -256,5 +256,13 @@ namespace DayTestCases
             var result = day.GetSuePart2();
             Assert.Equal(241, result);
         }
+
+        [Fact]
+        public void Day17_Part1_IsCorrect()
+        {
+            var day = new Day17();
+            var result = day.CombinationsCount(150);
+            Assert.Equal(4372, result);
+        }
     }
 }
