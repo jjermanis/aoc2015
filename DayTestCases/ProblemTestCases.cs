@@ -264,5 +264,13 @@ namespace DayTestCases
             var result = day.CombinationsCount(150);
             Assert.Equal(4372, result);
         }
+
+        [Fact]
+        public void Day17_Part2_IsCorrect()
+        {
+            var day = new Day17();
+            var result = day.OptimalCombinationCount(150);
+            Assert.Equal(4, result);
+        }
     }
 }
