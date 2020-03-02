@@ -272,5 +272,21 @@ namespace DayTestCases
             var result = day.OptimalCombinationCount(150);
             Assert.Equal(4, result);
         }
+
+        [Fact]
+        public void Day18_Part1_IsCorrect()
+        {
+            var day = new Day18();
+            var result = day.LightsOnCountMultipleSteps(100);
+            Assert.Equal(814, result);
+        }
+
+        [Fact]
+        public void Day18_Part2_IsCorrect()
+        {
+            var day = new Day18();
+            var result = day.LightsOnCountMultipleSteps(100, true);
+            Assert.Equal(924, result);
+        }
     }
 }
