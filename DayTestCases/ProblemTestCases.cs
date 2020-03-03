@@ -288,5 +288,13 @@ namespace DayTestCases
             var result = day.LightsOnCountMultipleSteps(100, true);
             Assert.Equal(924, result);
         }
+
+        [Fact]
+        public void Day19_Part1_IsCorrect()
+        {
+            var day = new Day19();
+            var result = day.DistinctMoleculeCount();
+            Assert.Equal(535, result);
+        }
     }
 }
