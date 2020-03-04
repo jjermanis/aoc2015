@@ -64,6 +64,24 @@ namespace AoC2015
             return (resultX, resultY);
         }
 
+        public static IEnumerable<int> AllFactors(int val)
+        {
+            var opposites = new Stack<int>();
+            yield return 1;
+            opposites.Push(val);
+            for (var x = 2; x * x < val; x++)
+            {
+                if (val % x == 0)
+                {
+                    yield return x;
+                    if (x * x != val)
+                        opposites.Push(val / x);
+                }
+            }
+            while (opposites.Count > 0)
+                yield return opposites.Pop();
+        }
+
         /// <summary>
         /// Enumerates over all prime factors of val, in ascending order.  If a prime
         /// factor is repeated, it will be repeated in the enumeration.  For example,

@@ -296,5 +296,13 @@ namespace DayTestCases
             var result = day.DistinctMoleculeCount();
             Assert.Equal(535, result);
         }
+
+        [Fact]
+        public void Day20_Part1_IsCorrect()
+        {
+            var day = new Day20();
+            var result = day.FirstHouseAtLimit();
+            Assert.Equal(665280, result);
+        }
     }
 }
