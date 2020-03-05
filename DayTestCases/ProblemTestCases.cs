@@ -304,5 +304,13 @@ namespace DayTestCases
             var result = day.FirstHouseAtLimit();
             Assert.Equal(665280, result);
         }
+
+        [Fact]
+        public void Day21_Part1_IsCorrect()
+        {
+            var day = new Day21();
+            var result = day.CheapestVictory();
+            Assert.Equal(121, result);
+        }
     }
 }
