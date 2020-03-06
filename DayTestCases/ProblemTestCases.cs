@@ -306,6 +306,14 @@ namespace DayTestCases
         }
 
         [Fact]
+        public void Day20_Part2_IsCorrect()
+        {
+            var day = new Day20();
+            var result = day.FirstHouseCappedVisits(50);
+            Assert.Equal(705600, result);
+        }
+
+        [Fact]
         public void Day21_Part1_IsCorrect()
         {
             var day = new Day21();

@@ -24,6 +24,8 @@ namespace AoC2015
         public void Do()
         {
             Console.WriteLine($"First house at {_limit} presents: {FirstHouseAtLimit()}");
+            var visitCap = 50;
+            Console.WriteLine($"First house, with {visitCap} visit cap per elf: {FirstHouseCappedVisits(visitCap)}");
         }
 
         public int FirstHouseAtLimit()
@@ -33,6 +35,21 @@ namespace AoC2015
                 var curr = 0;
                 foreach (var factor in Util.AllFactors(house))
                     curr += factor * 10;
+                if (curr >= _limit)
+                    return house;
+            }
+        }
+
+        public int FirstHouseCappedVisits(int visitCap)
+        {
+            for (var house = HOUSE_STEP; true; house += HOUSE_STEP)
+            {
+                var curr = 0;
+                foreach (var factor in Util.AllFactors(house))
+                {
+                    if (house / factor <= visitCap)
+                        curr += factor * 11;
+                }
                 if (curr >= _limit)
                     return house;
             }
