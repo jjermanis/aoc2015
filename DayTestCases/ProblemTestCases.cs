@@ -322,6 +322,14 @@ namespace DayTestCases
         }
 
         [Fact]
+        public void Day21_Part2_IsCorrect()
+        {
+            var day = new Day21();
+            var result = day.CostliestLoss();
+            Assert.Equal(201, result);
+        }
+
+        [Fact]
         public void Day23_Part1_IsCorrect()
         {
             var day = new Day23();
