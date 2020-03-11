@@ -17,13 +17,17 @@ namespace AoC2015
         {
             (var a, var b) = RunProgram();
             Console.WriteLine($"Register b={b}");
+            (a, b) = RunProgram(1, 0);
+            Console.WriteLine($"Starting with a=1, Register b={b}");
         }
 
-        public (int, int) RunProgram()
+        public (int, int) RunProgram(
+            int startA = 0, 
+            int startB = 0)
         {
             var program = Data.ToList();
             var pc = 0;
-            var regs = new int[2];
+            var regs = new int[2] { startA, startB };
 
             while (pc < program.Count)
             {

@@ -336,5 +336,13 @@ namespace DayTestCases
             (_, var result) = day.RunProgram();
             Assert.Equal(307, result);
         }
+
+        [Fact]
+        public void Day23_Part2_IsCorrect()
+        {
+            var day = new Day23();
+            (_, var result) = day.RunProgram(1, 0);
+            Assert.Equal(160, result);
+        }
     }
 }
