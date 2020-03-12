@@ -344,5 +344,13 @@ namespace DayTestCases
             (_, var result) = day.RunProgram(1, 0);
             Assert.Equal(160, result);
         }
+
+        [Fact]
+        public void Day24_Part1_IsCorrect()
+        {
+            var day = new Day24();
+            var result = day.QuantumInOptimalConfig();
+            Assert.Equal(11266889531, result);
+        }
     }
 }
